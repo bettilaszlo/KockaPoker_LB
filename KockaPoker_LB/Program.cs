@@ -9,9 +9,8 @@ namespace KockaPoker_LB
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Ellenorzes()
         {
-            //Dobas d = new Dobas(5,5,5,3,5);
             StreamReader file = new StreamReader("kockapoker.txt");
             while (!file.EndOfStream)
             {
@@ -21,8 +20,38 @@ namespace KockaPoker_LB
                 d.Kiiras();
             }
             file.Close();
+
+        }
+        static void Main(string[] args)
+        {
+            //Dobas d = new Dobas(6, 6, 6, 2, 2);
             //d.EgyDobas();
             //d.Kiiras();
+            //Ellenorzes();
+
+            Dobas gep = new Dobas();
+            Dobas ember = new Dobas();
+
+            Console.Write("Gép:");
+            gep.EgyDobas();
+            gep.Kiiras();
+
+            Console.Write("\nEmber:");
+            ember.EgyDobas();
+            ember.Kiiras();
+
+            if (gep.Pont > ember.Pont)
+            {
+                Console.WriteLine("Gép nyert :(");
+            }
+            else if (ember.Pont > gep.Pont)
+            {
+                Console.WriteLine("Ember nyert :)");
+            }
+            else
+            {
+                Console.WriteLine("Döntetlen");
+            }
             Console.ReadLine();
         }
     }
